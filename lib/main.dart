@@ -10,6 +10,8 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Vazir'),
+      debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
   }
@@ -21,19 +23,67 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.deepOrangeAccent,
       body: SafeArea(
-        child: Center(
-          child: TextButton(
-            onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (BuildContext context) => SecondScreen(),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 100,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'خوش آمدید',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Icon(
+                    Icons.login,
+                    size: 40,
+                  ),
+                ],
+              ),
+              Image(
+                image: AssetImage("images/welcome.png"),
+              ),
+              OutlinedButton(
+                onPressed: () {},
+                child: Text(
+                  'ثبت نام',
+                  style: TextStyle(fontSize: 16),
                 ),
-              );
-            },
-            child: Text(
-              'Next Screen',
-            ),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  minimumSize: Size(200, 40),
+                  side: BorderSide(
+                    color: Colors.white,
+                    width: 2,
+                  ),
+                ),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'ثبت نام',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                style: TextButton.styleFrom(
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.white,
+                  minimumSize: Size(200, 40),
+                ),
+              ),
+            ],
           ),
         ),
       ),
