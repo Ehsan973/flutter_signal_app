@@ -16,73 +16,72 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepOrangeAccent,
+      backgroundColor: Colors.white,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 100,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'خوش آمدید',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'VIP ورود به حساب سیگنال',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Icon(
+                      Icons.login,
+                      size: 35,
+                    ),
+                  ],
+                ),
+                Image(
+                  image: AssetImage("images/w.png"),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    navigateToPage(context, BlogScreen());
+                  },
+                  child: Text(
+                    'ورود به حساب',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    minimumSize: Size(200, 40),
+                    side: BorderSide(
+                      color: Colors.black,
+                      width: 2,
                     ),
                   ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Icon(
-                    Icons.login,
-                    size: 40,
-                  ),
-                ],
-              ),
-              Image(
-                image: AssetImage("images/welcome.png"),
-              ),
-              OutlinedButton(
-                onPressed: () {
-                  navigateToPage(context, BlogScreen());
-                },
-                child: Text(
-                  'ورود به حساب',
-                  style: TextStyle(fontSize: 16),
                 ),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  minimumSize: Size(200, 40),
-                  side: BorderSide(
-                    color: Colors.white,
-                    width: 2,
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('ثبت نام'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.black,
+                    minimumSize: Size(200.0, 42.0),
                   ),
                 ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text('ثبت نام'),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.black,
-                  minimumSize: Size(200.0, 42.0),
-                ),
-              ),
-              TextButton(
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.white,
-                ),
-                onPressed: () {
-                  navigateToPage(context, PasswordRicovery());
-                },
-                child: Text('فراموشی رمز عبور'),
-              )
-            ],
+                TextButton(
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.grey,
+                  ),
+                  onPressed: () {
+                    navigateToPage(context, PasswordRicovery());
+                  },
+                  child: Text('فراموشی رمز عبور'),
+                )
+              ],
+            ),
           ),
         ),
       ),
