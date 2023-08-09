@@ -1,7 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:signal_app/custom_widgets/post_widget.dart';
 
 class BlogScreen extends StatelessWidget {
-  const BlogScreen({super.key});
+  BlogScreen({super.key});
+
+  final List<Widget> listBlogWidget = [
+    getBlogPost(
+        imageName: 's.png',
+        title: 'برای 17 مرداد Safemoon :سیگنال خرید  ',
+        buy_price: 14120,
+        sell_price: 16231),
+    getBlogPost(
+        imageName: 'a.png',
+        title: 'برای 17 مرداد Alchemy :سیگنال خرید  ',
+        buy_price: 12534,
+        sell_price: 14210),
+    getBlogPost(
+      imageName: 'c.png',
+      title: 'برای 17 مرداد Cosmos :سیگنال خرید  ',
+      buy_price: 2092,
+      sell_price: 2403,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -21,54 +41,33 @@ class BlogScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(5),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: Image(
-                    image: AssetImage('images/s.png'),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ...listBlogWidget, //Spread operator
+                  SizedBox(
+                    height: 20,
                   ),
-                ),
-                Text(
-                  'برای 17 مرداد Safemoon :سیگنال خرید  ',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '13534 : فروش روی',
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.red,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      'خروج از حساب',
                       style: TextStyle(
-                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
                       ),
                     ),
-                    Icon(
-                      Icons.price_check,
-                      size: 23,
-                      color: Colors.red,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      '12534 : خرید روی ',
-                      style: TextStyle(color: Colors.green),
-                    ),
-                    Icon(
-                      Icons.sell,
-                      color: Colors.green,
-                      size: 16,
-                    ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
